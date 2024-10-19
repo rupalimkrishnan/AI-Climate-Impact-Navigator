@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI-Driven Climate Impact Navigator</title>
+
+    <!-- Google Font: Roboto -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Styles -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: "Roboto", sans-serif;
+        background-color: #121212; /* Dark theme for body */
+        color: rgba(68, 186, 150, 1); /* Light green text */
+        overflow: hidden; /* Prevent body scrolling */
+      }
+
+      /* Home Section */
+      .home-container {
+        width: 100%;
+        height: 100vh; /* Full screen height */
+        background: url("https://res.cloudinary.com/dbxk7xuzi/image/upload/v1729059869/Frame_1_mg7hlh.png")
+          no-repeat center center fixed;
+        background-size: cover; /* Ensure the image covers the entire background */
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .navbar {
+        position: fixed;
+        top: 20px;
+        right: 50px;
+        font-size: 18px;
+        z-index: 1000; /* Ensure navbar is above other content */
+      }
+      .navbar a {
+        margin-left: 30px;
+        text-decoration: none;
+        color: rgba(68, 186, 150, 1); /* Light green color for links */
+        font-weight: bold;
+      }
+      .main-heading {
+        font-size: 64px;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: rgba(68, 186, 150, 1);
+        line-height: 1.2; /* Adjust line spacing */
+      }
+      .sub-heading {
+        font-size: 24px;
+        text-align: center;
+        font-weight: 300;
+        color: rgba(68, 186, 150, 1);
+      }
+      /* About Section Styles */
+      .about-section {
+        padding: 0;
+        color: white;
+      }
+
+      /* First Portion with Heading and Intro Text */
+      .about-intro {
+        background: linear-gradient(
+          to right,
+          rgba(68, 186, 150, 0.8),
+          rgba(68, 186, 150, 1)
+        ); /* Gradient */
+        padding: 50px 20px;
+        text-align: center;
+        border-radius: 0px; /* Rounded corners */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Box shadow */
+      }
+      .about-intro h2 {
+        font-size: 40px;
+        color: white;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow */
+      }
+      .about-intro p {
+        max-width: 800px;
+        color: white;
+        margin: 0 auto;
+        line-height: 1.6;
+        font-size: 18px;
+      }
+
+      /* Second Portion with Image and Description Side by Side */
+      .about-content {
+        background-color: #1a1a1a; /* Dark background */
+        padding: 50px 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 0px; /* Rounded corners */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Box shadow */
+      }
+      .about-content img {
+        width: 300px;
+        height: auto;
+        border-radius: 10px; /* Rounded corners for the image */
+      }
+      .about-description {
+        max-width: 500px;
+        color: white;
+        line-height: 1.6;
+        font-size: 18px;
+      }
+
+      /* Third Portion with Additional Paragraph */
+      .about-paragraph {
+        background: linear-gradient(
+          to right,
+          rgba(106, 110, 109, 0.8),
+          rgba(106, 110, 109, 1)
+        ); /* Gradient */
+        padding: 50px 20px;
+        text-align: center;
+        color: #1a1a1a; /* Dark text color */
+        border-radius: 0px; /* Rounded corners */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Box shadow */
+      }
+      .about-paragraph p {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .about-intro h3 {
+        font-size: 40px;
+        color: #1a1a1a;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow */
+      }
+
+      @media (max-width: 768px) {
+        .about-content {
+          flex-direction: column;
+          text-align: center;
+        }
+        .about-content img {
+          width: 80%; /* Set the width to 80% of the container */
+          height: auto; /* Maintain aspect ratio */
+          max-height: 400px; /* Set a maximum height for the image */
+          margin-bottom: 20px;
+          border-radius: 10px; /* Optional: add rounded corners */
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: add shadow for depth */
+        }
+      }
+
+      /* Other Sections (Dark theme) */
+      .content-section {
+        margin: 0;
+        background-color: #121212; /* Dark background for sections */
+        padding: 40px;
+        border-radius: 8px;
+        color: rgba(68, 186, 150, 1); /* Light green text */
+        height: 100vh; /* Full screen height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        overflow-y: auto; /* Enable vertical scrolling */
+        border: 2px solid rgba(68, 186, 150, 1); /* Add borders to sections */
+        position: absolute; /* Position absolute to fill the viewport */
+        width: 100%;
+        top: 0; /* Position at the top */
+        left: 0; /* Position at the left */
+        z-index: 1; /* Set a lower z-index for sections */
+        text-align: left; /* Align text to the left */
+      }
+      h2 {
+        color: rgba(
+          68,
+          186,
+          150,
+          1
+        ); /* Apply the same green color to headings */
+        margin: 10px 0; /* Add margin for better spacing */
+      }
+      p,
+      ul {
+        margin: 10px 0; /* Add margin for better spacing */
+        line-height: 1.6; /* Increase line spacing for readability */
+      }
+      .form-control {
+        background-color: #2c2c2c;
+        color: #e0e0e0;
+      }
+      .btn-primary {
+        background-color: rgba(68, 186, 150, 1);
+        border: none;
+      }
+      .btn-primary:hover {
+        background-color: #00e6b8;
+      }
+      .footer {
+        background-color: #1f1f1f;
+        color: #e0e0e0;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: auto; /* Push footer to the bottom */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Home Section -->
+    <div id="home" class="home-container">
+      <div class="navbar">
+        <a href="#home" onclick="showSection('home')">HOME</a>
+        <a href="#about" onclick="showSection('about')">ABOUT</a>
+        <a href="#calculator" onclick="showSection('calculator')"
+          >CARBON FOOTPRINT</a
+        >
+        <a href="#contact" onclick="showSection('contact')">CONTACT</a>
+      </div>
+      <div class="main-heading">
+        AI-DRIVEN CLIMATE IMPACT<br />
+        NAVIGATOR
+      </div>
+      <div class="sub-heading">Take Action Today, for a Greener Tomorrow</div>
+      <a
+        href="#calculator"
+        onclick="showSection('calculator')"
+        class="btn btn-primary btn-lg mt-4"
+        >Get Started</a
+      >
+      <script>
+        function scrollToSection() {
+          document.getElementById("calculator").scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      </script>
+    </div>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="content-section"
+      style="padding-top: 550px; margin-left: 0; margin-right: 0"
+    >
+      <!-- First Portion: About Heading and Intro Text -->
+      <div class="about-intro">
+        <h2>About</h2>
+        <p>
+          The AI-Driven Climate Impact Navigator is a cutting-edge platform
+          designed to help individuals and businesses in Chennai track and
+          reduce their carbon footprint. Our mission is to empower users with
+          data-driven insights, personalized recommendations, and practical
+          solutions to contribute to a more sustainable future.
+        </p>
+      </div>
+
+      <!-- Second Portion: Image and Description Side by Side -->
+      <div class="about-content">
+        <img
+          src="https://res.cloudinary.com/dbxk7xuzi/image/upload/v1729094161/Screenshot_2024-10-16_212521_hol8um.png"
+          alt="About Image"
+          style="
+            width: 50%;
+            max-height: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          "
+        />
+
+        <div class="about-description">
+          <h2>What We Do</h2>
+          <ul>
+            <li>
+              Carbon Footprint Calculation: Analyzing daily activities like
+              transportation, energy use, and waste disposal to estimate your
+              carbon footprint.
+            </li>
+            <li>
+              Personalized Recommendations: Offering easy-to-implement,
+              localized suggestions to reduce carbon emissions.
+            </li>
+            <li>
+              Localized Focus on Chennai: Using city-specific data for the most
+              relevant insights on sustainability and climate impact.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Third Portion: Additional Paragraph Text -->
+      <div class="about-paragraph">
+        <h3>Why Focus on India?</h3>
+
+        <p>
+          India, with its diverse geography and rapidly growing urbanization,
+          faces significant climate challenges that require dedicated efforts to
+          promote sustainability. Our platform leverages national-level data to
+          provide you with the most relevant insights for reducing your carbon
+          footprint across various regions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Carbon Footprint Calculator Section -->
+    <section id="calculator" class="content-section" style="padding-top: 300px">
+      <div class="container">
+        <h2 class="section-title" style="margin-bottom: 0px">
+          Carbon Footprint Calculator
+        </h2>
+        <p>
+          Please answer the following questions about your daily activities:
+        </p>
+        <form
+          action="/recommend"
+          method="POST"
+          onsubmit="return showLoading();"
+        >
+          <div class="mb-3">
+            <label for="commuteDistance" class="form-label"
+              >Enter your daily commute distance (in km):</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="commuteDistance"
+              name="daily_commute_distance"
+              step="0.1"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="transportMode" class="form-label"
+              >What is your primary mode of transportation?</label
+            >
+            <select
+              class="form-select"
+              id="transportMode"
+              name="transportation_mode"
+              required
+            >
+              <option>Car(Petrol)</option>
+              <option>Car(Diesel)</option>
+              <option>Bike(Petrol)</option>
+              <option>Public Bus</option>
+              <option>Metro(Electric)</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="acUsage" class="form-label"
+              >Enter the number of hours you use AC daily:</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="acUsage"
+              name="ac_usage_hours"
+              min="0"
+              max="24"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="applianceUsage" class="form-label"
+              >Enter the number of hours your refrigerator runs daily:</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="applianceUsage"
+              name="refrigerator_usage_hours"
+              step="0.1"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="washingUsage" class="form-label"
+              >Enter the number of times you use the washing machine per
+              week:</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="washingUsage"
+              name="washing_machine_usage"
+              step="1"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="ledUsage" class="form-label"
+              >Enter the number of hours you use LED lighting daily:</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="ledUsage"
+              name="led_lighting_hours"
+              step="0.1"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="organicWaste" class="form-label"
+              >Enter how much organic waste you generate daily (in kg):</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="organicWaste"
+              name="organic_waste_generated"
+              step="0.1"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="plasticWaste" class="form-label"
+              >Enter how much plastic waste you generate daily (in kg):</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="plasticWaste"
+              name="plastic_waste_generated"
+              step="0.1"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Calculate My Carbon Footprint
+          </button>
+        </form>
+      </div>
+    </section>
+    <!-- Recommendations Section (Hidden by Default) -->
+    <section id="recommendations" class="content-section d-none">
+      <div class="container">
+        <h2 class="section-title">Your Recommendations</h2>
+        <p>Your recommendations will be displayed here after calculation.</p>
+        <div id="recommendation-content"></div>
+        <a
+          href="#calculator"
+          onclick="showSection('calculator')"
+          class="btn btn-primary mt-3"
+          >Back to Calculator</a
+        >
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <p>If you have any questions or feedback, please reach out!</p>
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Your Name:</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Your Email:</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Your Message:</label>
+            <textarea
+              class="form-control"
+              id="message"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>
+        &copy; AI-Driven Climate Impact Navigator@2024. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- CSS Styles -->
+    <style>
+      /* Home Section Navbar */
+      .navbar-home {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: transparent;
+        padding: 15px;
+        display: flex;
+        justify-content: flex-end; /* Align links to the right */
+        transition: background 0.3s ease;
+        z-index: 1000;
+      }
+
+      /* Other Sections Navbar - Solid Background */
+      .navbar-scrolled {
+        background-color: #121212; /* Dark solid background color */
+        color: white;
+      }
+
+      .navbar a {
+        color: rgba(68, 186, 150, 1);
+        margin-left: 20px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .navbar a:hover {
+        color: white; /* Change on hover */
+      }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        const homeSection = document.getElementById("home");
+
+        // Check if the user has scrolled past the home section
+        if (window.scrollY > homeSection.clientHeight) {
+          navbar.classList.add("navbar-scrolled"); // Add solid background for other sections
+        } else {
+          navbar.classList.remove("navbar-scrolled"); // Keep transparent for home section
+        }
+      });
+
+      // Function to show selected section and hide others
+      function showSection(sectionId) {
+        const sections = document.querySelectorAll(".content-section");
+        sections.forEach((section) => {
+          if (section.id === sectionId) {
+            section.classList.remove("d-none"); // Show this section
+          } else {
+            section.classList.add("d-none"); // Hide other sections
+          }
+        });
+        // Scroll to top when switching sections
+        window.scrollTo(0, 0);
+      }
+
+      // Show home section by default
+      showSection("home");
+
+      // Function to show recommendations section
+      function showLoading() {
+        const recommendationsSection =
+          document.getElementById("recommendations");
+        recommendationsSection.classList.remove("d-none"); // Show recommendations section
+        return true; // Proceed with the form submission
+      }
+    </script>
+  </body>
+</html>
