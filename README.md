@@ -17,7 +17,7 @@ The **AI-Driven Climate Impact Navigator** is a web application designed to help
 - **Scikit-Learn**: For implementing machine learning algorithms.
 - **Joblib**: For saving and loading models.
 
-## Datasets
+## Datasets 🚀
 The following datasets were collected and used to power the carbon emission calculations and modeling:
 
 1. Transportation Data
@@ -41,21 +41,6 @@ Source:
 - Swachh Bharat Mission (Urban)
 - Ministry of Environment, Forest and Climate Change (MoEFCC)
 - National Green Tribunal (NGT) Reports
-
-## Getting Started 🚀
-Clone the repository:
-
-bash
-git clone https://github.com/username/ai-climate-navigator.git
-cd ai-climate-navigator
-Install the required dependencies:
-
-bash
-pip install -r requirements.txt
-Run the application:
-
-bash
-flask run
 
 
  
