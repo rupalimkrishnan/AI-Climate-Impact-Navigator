@@ -10,7 +10,6 @@ The **AI-Driven Climate Impact Navigator** is a web application designed to help
 - **Interactive Visualizations**: Graphical representation of current vs. recommended emissions using Plotly.
 - **Data-Driven Insights**: Utilizes machine learning models to generate actionable recommendations.
 
-## Technologies Used
 ## Technologies & Tools Used 🛠️
 - **Flask**: A lightweight web framework for Python that powers the backend.
 - **Plotly**: For creating interactive graphs and visualizations.
