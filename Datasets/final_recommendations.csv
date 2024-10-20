@@ -1,0 +1,9 @@
+Activity,Current Behavior,Recommendation,Expected Reduction (kg CO2)
+Daily Commute Distance,Using a personal vehicle for daily commuting,Use public transport or carpooling,2
+Primary Mode of Transportation,Driving to nearby shops,Walk or cycle for short trips (less than 5 km),0.5
+AC Usage,Running the AC continuously,"Use fans or natural ventilation during cooler hours, close windows",1.5
+Refrigerator Usage,Running refrigerator all day,"Clean and maintain fridge, avoid overstocking",0.08
+Washing Machine Usage,Using washing machine multiple times a week,Use eco-friendly detergent and cold water cycles,0.3
+Lighting Usage,Leaving LED lights on when not needed,Turn off lights when not in use,0.08
+Organic Waste Generation,Generating a lot of organic waste,Start composting instead of throwing away organic waste,0.6
+Plastic Waste Generation,Producing a significant amount of plastic waste,"Switch to recyclable or minimal packaging, use reusable shopping bags",1

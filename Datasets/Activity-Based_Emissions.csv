@@ -1,0 +1,14 @@
+Activity,Emission Source,Emission Factor (kg CO2/unit),Unit of Measure
+Car (Petrol),Vehicle transportation,0.271,km traveled
+Car (Diesel),Vehicle transportation,0.239,km traveled
+Bike (Petrol),Vehicle transportation,0.1,km traveled
+Public Bus,Public transportation,0.089,km traveled
+Metro (Electric),Public transportation,0.048,km traveled
+Air Conditioner (AC),Energy consumption,0.92,kWh
+Refrigerator,Energy consumption,1.1,kWh/day
+Washing Machine,Energy consumption,0.5,kWh
+LED Lighting,Energy consumption,0.08,kWh
+Plastic Waste (Landfill),Waste disposal,1.62,kg of plastic
+Organic Waste (Composted),Waste disposal,0.025,kg of organic waste
+Organic Waste (Landfill),Waste disposal,0.62,kg of organic waste
+Paper Waste (Recycled),Waste disposal,0.08,kg of paper
