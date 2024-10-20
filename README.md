@@ -3,7 +3,6 @@
 ## Overview
 The **AI-Driven Climate Impact Navigator** is a web application designed to help users understand and reduce their carbon footprint through personalized recommendations. By analyzing user inputs related to daily activities and emissions, the application provides actionable insights to promote environmentally friendly practices.
 
-## Features
 ## Key Features ✨
 - **User-Friendly Interface**: A clean and intuitive web interface built with Flask and Bootstrap.
 - **Personalized Recommendations**: Users receive tailored suggestions based on their emissions data.
