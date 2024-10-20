@@ -1,4 +1,3 @@
-# AI-Climate Impact Navigator
 # AI-Driven Climate Impact Navigator
 
 ## Overview
